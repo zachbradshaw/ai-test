@@ -1,9 +1,6 @@
 app.controller('apptController', function ($http, $scope) {
 
-  var getAppts = {
-    method: 'GET',
-    url: 'http://fake-co-calendar.herokuapp.com/api/v1/events'
-  }
+  var url = 'http://fake-co-calendar.herokuapp.com/api/v1/events?callback=JSON_CALLBACK';
 
   $scope.meetingRooms = ['Main Conference Room',
                         'Room A',
@@ -15,7 +12,7 @@ app.controller('apptController', function ($http, $scope) {
                         'Room G',
                         'Room H']
 
-  $http(getAppts).success(function (d) {
+  $http.jsonp(url).success(function (d) {
     $scope.appts = d.events.list;
     console.log($scope.appts);
   })
