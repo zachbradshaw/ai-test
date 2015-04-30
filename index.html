@@ -4,31 +4,51 @@
   <head>
     <meta charset="utf-8">
     <title>FakeCo Meetings</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
 
   <body ng-controller="apptController">
-    <h1>Meetings</h1>
 
-    <ul>
-      <li ng-repeat="room in meetingRooms">
-        {{room}}
-      </li>
-    </ul>
+    <appt-directive>
+      <div class="header">
+        <h1 class="company-name">FakeCo Meetings</h1>
+        <span class="current-time" ng-bind="currentTime()"></span>
+        
+          <div class="room-list">
+            <div class="room-circle open"><span class="room-name long">MAIN</span></div>
+            <div class="room-circle open"><span class="room-name long">LOUNGE</span></div>
+            <div class="room-circle open"><span class="room-name short">A</span></div>
+            <div class="room-circle open"><span class="room-name short">B</span></div>
+            <div class="room-circle open"><span class="room-name short">C</span></div>
+            <div class="room-circle open"><span class="room-name short">D</span></div>
+            <div class="room-circle open"><span class="room-name short">E</span></div>
+            <div class="room-circle open"><span class="room-name short">F</span></div>
+            <div class="room-circle open"><span class="room-name short">G</span></div>
+            <div class="room-circle open"><span class="room-name short">H</span></div>
+          </div>
 
-    <ul>
-      <li ng-repeat="appt in appts">
-        Name: {{appt.name}} |
-        Date/Time: {{appt.start_time}}-{{appt.end_time}} |
-        Location: {{appt.location}}
-      </li>
-    </ul>
+      </div>
+
+      <div class="meeting-list-container">
+
+        <ul>
+          <li ng-repeat="appt in appts" class="appt-slot">
+            <span class="appt-start">{{appt.short_start_time}}</span> - 
+            <span class="appt-end">{{appt.short_end_time}}</span>
+            <span class="appt-name">{{appt.name}}</span>
+            <span class="appt-room">{{appt.location}}</span>
+          </li>
+        </ul>
+      </div>
+    </appt-directive>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="app.js"></script>
     <script src="js/appt-controller.js"></script>
+    <!-- // <script src="js/time.js"></script> -->
   </body>
 
 </html>
