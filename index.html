@@ -15,7 +15,7 @@
       <div class="header">
         <h1 class="company-name">FakeCo Meetings</h1>
         <span class="current-time" ng-bind="currentTime()"></span>
-        
+
           <div class="room-list">
             <div class="room-circle open"><span class="room-name long">MAIN</span></div>
             <div class="room-circle open"><span class="room-name long">LOUNGE</span></div>
@@ -31,12 +31,16 @@
 
       </div>
 
-      <div class="meeting-list-container">
+      <div class="appt-list-container">
 
         <ul>
           <li ng-repeat="appt in appts" class="appt-slot">
-            <span class="appt-start">{{appt.short_start_time}}</span> - 
-            <span class="appt-end">{{appt.short_end_time}}</span>
+            <span class="appt-start">
+              <span class="start-hour">{{appt.start_hour}}</span>:<span class="start-minutes">{{appt.start_minutes}}</span>
+            </span> -
+            <span class="appt-end">
+              <span class="end-hour">{{appt.end_hour}}</span>:<span class="end-minutes">{{appt.end_minutes}}</span>
+            </span>
             <span class="appt-name">{{appt.name}}</span>
             <span class="appt-room">{{appt.location}}</span>
           </li>

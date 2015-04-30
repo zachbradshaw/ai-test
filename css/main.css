@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-	background-color: #5c8bf2;
+	background-color: #176CED;
 	position: relative;
 	padding: 1em;
 }
@@ -45,12 +45,13 @@ body {
 
 .room-circle {
 	border-radius: 50%;
-	width: 60px;
-	height: 60px;
+	width: 63px;
+	height: 63px;
 	background-color: white;
 	display: inline-block;
 	position: relative;
 	margin: 0 2px;
+  padding: 0;
 }
 
 .room-name {
@@ -61,12 +62,12 @@ body {
 }
 
 .open {
-	background-color: #0da755;
+	background-color: #009A57;
 	color: white;
 }
 
 .taken {
-  background-color: #d21212;
+  background-color: #D9442F;
   color: white;
 }
 
@@ -93,6 +94,6 @@ body {
 	font-size: 1.5em;
 	display: block;
 	font-weight: bold;
-	color: #5C8BF2;
+	color: #176CED;
 	margin: .3em 0 .1em 0;
 }
