@@ -62,6 +62,10 @@ angular.module('fakeCo')
             slot.addClass('current-appt');
           }
 
+          if (currentTime.isBetween(startTime, endTime)) {
+            slot.children('.appt-end').children('.appt-warning').text(' (In progress)')
+          }
+
           if (endTime.isBefore(moment())) {
             slot.removeClass('current-appt');
             slot.addClass('past-appt');
@@ -74,10 +78,6 @@ angular.module('fakeCo')
 
           if(currentTime.diff(startTime, 'minutes') < 0 && currentTime.diff(startTime, 'minutes') > -20) {
             slot.children('.appt-end').children('.appt-warning').text(' (In ' + startTime.diff(currentTime, "minutes") + ' minutes)')
-          }
-
-          if (currentTime.isBetween(startTime, endTime)) {
-            slot.children('.appt-end').children('.appt-warning').text(' (In progress)')
           }
 
           $('.room-circle').each(function (){
