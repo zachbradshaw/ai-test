@@ -18,7 +18,6 @@
 
           <div class="room-list">
             <div class="room-circle open"><span class="room-name long">MAIN</span></div>
-            <div class="room-circle open"><span class="room-name long">LOUNGE</span></div>
             <div class="room-circle open"><span class="room-name short">A</span></div>
             <div class="room-circle open"><span class="room-name short">B</span></div>
             <div class="room-circle open"><span class="room-name short">C</span></div>
@@ -27,6 +26,7 @@
             <div class="room-circle open"><span class="room-name short">F</span></div>
             <div class="room-circle open"><span class="room-name short">G</span></div>
             <div class="room-circle open"><span class="room-name short">H</span></div>
+            <div class="room-circle open"><span class="room-name lounge">LOUNGE</span></div>
           </div>
 
       </div>
@@ -43,6 +43,12 @@
             </span>
             <span class="appt-name">{{appt.name}}</span>
             <span class="appt-room">{{appt.location}}</span>
+            <ul class="attendees-list">
+              <li ng-repeat="attendee in appt.attendees" class="attendee">
+                <img src={{attendee.photo}} class="test-image" />
+                <p>{{attendee.name}}</p>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>

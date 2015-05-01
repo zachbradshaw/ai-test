@@ -75,14 +75,19 @@ body {
 	font-size: .9em;
 }
 
+.lounge {
+  font-size: .85em;
+}
+
 .short {
 	font-size: 1.5em;
 }
 
 .appt-slot {
-	padding: 3em;
+	padding: 3em 5em;
 	background-color: #FFFFFF;
 	margin: 0 0 2px 0;
+  position: relative;
 }
 
 .appt-start,
@@ -96,4 +101,30 @@ body {
 	font-weight: bold;
 	color: #176CED;
 	margin: .3em 0 .1em 0;
+}
+
+.attendees-list {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(0%, -50%);
+  /*margin-left: 5em;*/
+  /*text-align: left;*/
+}
+
+.attendee {
+  display: inline-block;
+}
+
+.test-image {
+  display: inline;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin: 4px;
+  /*position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
 }

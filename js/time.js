@@ -1,34 +1,28 @@
-// app.factory('Time', [function () {
-// 	var self = this;
+app.factory('Time', [function () {
 
-// 	function checkTime(i) {
-//     if (i < 10) {
-//       i = "0" + i;
-//     }
-//     	return i;
-//   	}
+  return Time;
 
-//   self.currentTime = function() {
-//     var today = new Date();
-//     var h = today.getHours();
-//     var m = today.getMinutes();
-    
-//     m = checkTime(m);
+  function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+  }
 
-//     if (h < 12) {
-//       m = m + ' AM';
-//     } else {
-//       m = m + ' PM'
-//     }
+  function currentTime () {
+    var today = new Date();
+    var h = today.getHours();
+    var afternoon = h - 12;
+    var m = today.getMinutes();
+    m = checkTime(m);
 
-//     if (h > 12) {
-//       h = h - 12;
-//     }
-//     document.querySelector('.current-time').innerHTML = 'Current Time: ' + h + ":" + m;
-//     t = setTimeout(function () {
-//         $scope.currentTime();
-//     }, 500);
-//   }
+    if (h > 12) {
+      h = afternoon;
+    }
+    document.querySelector('.current-time').innerHTML = 'Current Time: ' + '<span class="current-hour">' + h + '</span>' + ":" + '<span class="current-minute">' + m + '<span>';
+    t = setTimeout(function () {
+        $scope.currentTime();
+    }, 500);
+  }
 
-//   return self.currentTime();
-// }]);
+}]);
