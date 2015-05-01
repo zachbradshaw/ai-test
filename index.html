@@ -9,32 +9,65 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
 
-  <body ng-controller="apptController">
+  <body ng-controller="timeController">
 
     <appt-directive>
       <div class="header">
         <h1 class="company-name">FakeCo Meetings</h1>
-        <span class="current-time" ng-bind="currentTime()"></span>
+        <span class="current-time" ng-bind="displayTime()"></span>
 
           <div class="room-list">
-            <div class="room-circle open"><span class="room-name long">MAIN</span></div>
-            <div class="room-circle open"><span class="room-name short">A</span></div>
-            <div class="room-circle open"><span class="room-name short">B</span></div>
-            <div class="room-circle open"><span class="room-name short">C</span></div>
-            <div class="room-circle open"><span class="room-name short">D</span></div>
-            <div class="room-circle open"><span class="room-name short">E</span></div>
-            <div class="room-circle open"><span class="room-name short">F</span></div>
-            <div class="room-circle open"><span class="room-name short">G</span></div>
-            <div class="room-circle open"><span class="room-name short">H</span></div>
-            <div class="room-circle open"><span class="room-name lounge">LOUNGE</span></div>
+            <div class="room-circle open">
+              <span class="room-name long">MAIN</span>
+              <span class="hidden-name">Main Conference Room</span>
+            </div>
+            <div class="room-circle open">
+              <span class="room-name short">A</span>
+              <span class="hidden-name">Room A</span>
+              </div>
+            <div class="room-circle open">
+              <span class="room-name short">B</span>
+              <span class="hidden-name">Room B</span>
+              </div>
+            <div class="room-circle open">
+              <span class="room-name short">C</span>
+              <span class="hidden-name">Room C</span>
+              </div>
+            <div class="room-circle open">
+              <span class="room-name short">D</span>
+              <span class="hidden-name">Room D</span>
+              </div>
+            <div class="room-circle open">
+              <span class="room-name short">E</span>
+              <span class="hidden-name">Room E</span>
+              </div>
+            <div class="room-circle open">
+              <span class="room-name short">F</span>
+              <span class="hidden-name">Room F</span>
+              </div>
+            <div class="room-circle open">
+              <span class="room-name short">G</span>
+              <span class="hidden-name">Room G</span>
+              </div>
+            <div class="room-circle open">
+              <span class="room-name short">H</span>
+              <span class="hidden-name">Room H</span>
+              </div>
+            <div class="room-circle open">
+              <span class="room-name lounge">LOUNGE</span>
+              <span class="hidden-name">Lounge</span>
+              </div>
           </div>
 
       </div>
 
-      <div class="appt-list-container">
+      <div class="appt-list-container" ng-controller="apptController">
 
         <ul>
-          <li ng-repeat="appt in appts" class="appt-slot">
+          <li ng-repeat="appt in appts"
+              class="appt-slot"
+              data-start="{{appt.moment_start_time}}"
+              data-end="{{appt.moment_end_time}}">
             <span class="appt-start">
               <span class="start-hour">{{appt.start_hour}}</span>:<span class="start-minutes">{{appt.start_minutes}}</span>
             </span> -
@@ -56,9 +89,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
     <script src="app.js"></script>
     <script src="js/appt-controller.js"></script>
-    <!-- // <script src="js/time.js"></script> -->
+    <script src="js/time-controller.js"></script>
   </body>
 
 </html>

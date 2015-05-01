@@ -1,1 +1,1 @@
-var app = angular.module('fakeCo', []);
+angular.module('fakeCo', []);

@@ -37,8 +37,6 @@ body {
 
 .room-list {
 	width: 100%;
-	/*padding: 1em;*/
-	/*display: inline;*/
 	text-align: center;
 	padding: 0;
 }
@@ -59,6 +57,10 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.hidden-name {
+  display: none;
 }
 
 .open {
@@ -96,21 +98,29 @@ body {
 }
 
 .appt-name {
-	font-size: 1.5em;
+	font-size: 2em;
 	display: block;
 	font-weight: bold;
 	color: #176CED;
 	margin: .3em 0 .1em 0;
 }
 
+.past-appt,
+.current-appt {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #7F7F7F;
+  padding: 3em 5em;
+  margin: 0 0 2px 0;
+  position: relative;
+}
+
 .attendees-list {
   display: inline-block;
   position: absolute;
   top: 50%;
-  left: 40%;
+  left: 45%;
   transform: translate(0%, -50%);
-  /*margin-left: 5em;*/
-  /*text-align: left;*/
+  text-align: center;
 }
 
 .attendee {
@@ -122,9 +132,5 @@ body {
   border-radius: 50%;
   height: 100px;
   width: 100px;
-  margin: 4px;
-  /*position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);*/
+  margin: 5px;
 }
