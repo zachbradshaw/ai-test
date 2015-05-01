@@ -72,13 +72,13 @@
               <span class="start-hour">{{appt.start_hour}}</span>:<span class="start-minutes">{{appt.start_minutes}}</span>
             </span> -
             <span class="appt-end">
-              <span class="end-hour">{{appt.end_hour}}</span>:<span class="end-minutes">{{appt.end_minutes}}</span>
+              <span class="end-hour">{{appt.end_hour}}</span>:<span class="end-minutes">{{appt.end_minutes}}</span><span class="appt-warning"></span>
             </span>
             <span class="appt-name">{{appt.name}}</span>
             <span class="appt-room">{{appt.location}}</span>
             <ul class="attendees-list">
               <li ng-repeat="attendee in appt.attendees" class="attendee">
-                <img src={{attendee.photo}} class="test-image" />
+                <img src={{attendee.photo}} class="test-image">
                 <p>{{attendee.name}}</p>
               </li>
             </ul>

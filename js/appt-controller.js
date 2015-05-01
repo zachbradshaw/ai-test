@@ -40,7 +40,6 @@ angular.module('fakeCo')
     }
 
     $scope.appts = d.events.list;
-    console.log($scope.appts);
   })
 })
 .directive('apptDirective', function () {
@@ -48,45 +47,53 @@ angular.module('fakeCo')
   return {
     restrict: 'EA',
     link: function (scope, elem, attrs) {
-      setTimeout(function () {
-        function checkTime () {
-          var startTime;
-          var endTime;
-          var currentTime = moment();
-          // var currentTime = $('.test-time').text();
-          $('.appt-slot').each(function () {
-            startTime = moment($(this).data('start'));
-            endTime = moment($(this).data('end'))
+      function checkTime () {
+        var startTime;
+        var endTime;
+        var currentTime = moment();
 
-            if (startTime.isBefore(moment())) {
-              $(this).addClass('current-appt');
-            }
+        $('.appt-slot').each(function () {
+          var slot = $(this);
+          var currentSlot = $(this).hasClass('current-appt');
+          startTime = moment($(this).data('start'));
+          endTime = moment($(this).data('end'));
 
-            if (endTime.isBefore(moment())) {
-              $(this).removeClass('current-appt');
-              $(this).addClass('past-appt');
-            }
+          if (startTime.isBefore(moment())) {
+            slot.addClass('current-appt');
+          }
 
-            if (currentTime.diff(endTime, 'minutes') > 60) {
-              $(this).fadeOut();
-            }
+          if (endTime.isBefore(moment())) {
+            slot.removeClass('current-appt');
+            slot.addClass('past-appt');
+            slot.children('.appt-end').children('.appt-warning').text('');
+          }
 
-            if(currentTime.diff(startTime, 'minutes') < 0 && currentTime.diff(startTime, 'minutes') > -20) {
-              $(this).children('.end-minutes').append('<span>' + currentTime.diff(startTime, "minutes") + '</span>')
-            }
-          })
+          if (currentTime.diff(endTime, 'minutes') > 60) {
+            slot.fadeOut();
+          }
+
+          if(currentTime.diff(startTime, 'minutes') < 0 && currentTime.diff(startTime, 'minutes') > -20) {
+            slot.children('.appt-end').children('.appt-warning').text(' (In ' + startTime.diff(currentTime, "minutes") + ' minutes)')
+          }
+
+          if (currentTime.isBetween(startTime, endTime)) {
+            slot.children('.appt-end').children('.appt-warning').text(' (In progress)')
+          }
 
           $('.room-circle').each(function (){
-            if ($(this).children('.hidden-name').text() === $('.current-appt').children('.appt-room').text()) {
-              $(this).addClass('taken');
+            var circle = $(this);
+            if (currentSlot) {
+              if (circle.children('.hidden-name').text() === slot.children('.appt-room').text()) {
+                $(this).addClass('taken');
+              }
             }
           })
-        }
+        })
+      }
 
-        setInterval(function () {
-          checkTime();
-        }, 1000)
-      }, 100)
+      setInterval(function () {
+        checkTime();
+      }, 1000)
     }
   }
 })

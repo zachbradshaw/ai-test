@@ -4,7 +4,7 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	background-color: #7F7F7F;
+	background-color: #DDDDDD;
 }
 
 .header {
@@ -86,7 +86,7 @@ body {
 }
 
 .appt-slot {
-	padding: 3em 5em;
+	padding: 6em 5em;
 	background-color: #FFFFFF;
 	margin: 0 0 2px 0;
   position: relative;
@@ -97,8 +97,13 @@ body {
 	font-size: 1.2em;
 }
 
+.appt-warning {
+  color: #D9442F;
+  /*font-size: 1.2em;*/
+}
+
 .appt-name {
-	font-size: 2em;
+	font-size: 2.5em;
 	display: block;
 	font-weight: bold;
 	color: #176CED;
@@ -107,9 +112,9 @@ body {
 
 .past-appt,
 .current-appt {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   color: #7F7F7F;
-  padding: 3em 5em;
+  padding: 6em 5em;
   margin: 0 0 2px 0;
   position: relative;
 }
@@ -130,7 +135,7 @@ body {
 .test-image {
   display: inline;
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  height: 125px;
+  width: 125px;
   margin: 5px;
 }
